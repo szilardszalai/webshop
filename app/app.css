@@ -1,0 +1,15 @@
+.cart {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+
+a:link {
+    color: grey;
+    text-decoration: none;
+}
+
+.margin {
+    padding: 15px;
+    margin: 15px;
+}

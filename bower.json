@@ -1,0 +1,14 @@
+{
+  "name": "webshop",
+  "version": "1.0.0",
+  "description": "Szilard's Webshop",
+  "homepage": "https://szilardszalai.github.io/webshop",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.6.6",
+    "angular-route": "~1.6.6",
+    "angular-mocks": "~1.6.6",
+    "bootstrap": "3.3.7",
+    "ngstorage": "~0.3.11"
+  }
+}

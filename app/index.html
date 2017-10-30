@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="webshop">
+<head>
+    <meta charset="utf-8">
+    <title>Szilard's Webshop</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app.css"/>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="app.js"></script>
+
+    <script src="book-detail/book-detail.module.js"></script>
+    <script src="book-detail/book-detail.component.js"></script>
+    <script src="book-search/book-search.module.js"></script>
+    <script src="book-search/book-search.component.js"></script>
+    <script src="cart/cart.module.js"></script>
+    <script src="cart/cart.component.js"></script>
+
+    <script src="service/book.detail.session.service.js"></script>
+    <script src="service/shopping.cart.service.js"></script>
+
+</head>
+<body>
+
+<div align="right"><a href="#!/cart"><img class="cart" ng-src="img/cart.png"></a></div>
+
+<div ng-view></div>
+</body>
+</html>

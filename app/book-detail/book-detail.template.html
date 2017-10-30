@@ -1,0 +1,17 @@
+<div class="text-center margin">
+    <h4>Details of </h4>
+    <h2>{{ $ctrl.item.authors }} : {{ $ctrl.item.title }}</h2>
+    <img class="img-rounded margin" alt="Cover of the book" ng-src="{{ $ctrl.item.thumbnail }}">
+    <p>{{ $ctrl.item.description }}</p>
+
+    <button type="button" class="btn btn-success" ng-hide="$ctrl.shoppingCartService.isInCart($ctrl.item.id)"
+            ng-click="$ctrl.shoppingCartService.addToCart($ctrl.item)">Add to Cart
+    </button>
+    <button type="button" class="btn btn-danger" ng-show="$ctrl.shoppingCartService.isInCart($ctrl.item.id)"
+            ng-click="$ctrl.shoppingCartService.removeFromCart($ctrl.item.id)">Remove from Cart
+    </button>
+
+    <hr>
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.goBackToPreviousPage()">Back to Previous Page</button>
+</div>
+

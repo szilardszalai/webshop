@@ -1,0 +1,37 @@
+<div align="center">
+
+    <h1>Looking for a book? Just type in its title.</h1>
+
+    <p><input type="text" ng-model="$ctrl.queryParams" ng-model-options='{ debounce: 500 }' ng-change="$ctrl.getBooks()"
+              ng-init="$ctrl.init()"/></p>
+
+    <div ng-show="errStatusText === undefined && $ctrl.queryParams.length != 0">
+        <h1>Results</h1>
+        <p ng-show="totalItems > 0">Number of results: {{ totalItems }}, only the first {{ shownItems}} is listed</p>
+        <p ng-show="totalItems === 0">No results! Please try with another keywords.</p>
+        <div class="text-center margin">
+            <table class="table table-bordered" ng-repeat="item in items">
+                <tr>
+                    <td ng-click="$ctrl.bookDetailSessionService.setItem(item)">
+                        <a href="#!/details">
+                            <h4>{{ item.authors }} : {{ item.title }}</h4>
+                            <img ng-src="{{ item.smallThumbnail }}">
+                            <button type="button" class="btn btn-info">Details</button>
+                        </a>
+
+                        <button ng-hide="$ctrl.shoppingCartService.isInCart(item.id)" type="button"
+                                class="btn btn-success"
+                                ng-click="$ctrl.shoppingCartService.addToCart(item)">Add to cart
+                        </button>
+                        <button ng-show="$ctrl.shoppingCartService.isInCart(item.id)" type="button"
+                                class="btn btn-danger"
+                                ng-click="$ctrl.shoppingCartService.removeFromCart(item.id)">Remove from cart
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <h3 ng-show="errStatusText !== undefined">{{ errStatusText }}</h3>
+</div>

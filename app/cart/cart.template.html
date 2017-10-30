@@ -1,0 +1,30 @@
+<div class="text-center margin">
+    <h1>Cart</h1>
+
+    <p>Number of books in cart: {{ $ctrl.items.length }}</p>
+
+    <table class="table table-bordered" ng-repeat="item in $ctrl.items">
+        <tr>
+            <td ng-click="$ctrl.bookDetailSessionService.setItem(item)">
+                <a href="#!/details">
+                    <h2>{{ item.authors }} : {{ item.title }}</h2>
+                    <img ng-src="{{ item.smallThumbnail }}">
+                    <button type="button" class="btn btn-info">Details</button>
+                </a>
+
+                <button type="button" class="btn btn-success" ng-hide="$ctrl.shoppingCartService.isInCart(item.id)"
+                        ng-click="$ctrl.shoppingCartService.addToCart(item)">Add to Cart
+                </button>
+                <button type="button" class="btn btn-danger" ng-show="$ctrl.shoppingCartService.isInCart(item.id)"
+                        ng-click="$ctrl.shoppingCartService.removeFromCart(item.id); $ctrl.updateItems()">Remove from
+                    Cart
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <a href="#!/">
+        <button type="button" class="btn btn-primary">Back to the Main Page</button>
+    </a>
+
+</div>
